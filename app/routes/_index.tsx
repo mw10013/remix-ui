@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
 import { Button as ScnButton } from "~/lib/components/ui/button";
 import { ChevronRight, Mail, Loader2 } from "lucide-react";
+import { Button } from "~/lib/components/rac/Button";
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,6 +17,9 @@ export default function Index() {
   return (
     <div className="font-sans p-4">
       <h1 className="text-3xl">Welcome to remix-ui on Cloudflare</h1>
+      <div className="flex flex-col gap-4 max-w-[175px]">
+        <Button>Rac Button</Button>
+      </div>
       <div className="flex flex-col gap-4 max-w-[175px]">
         <ScnButton>Button</ScnButton>
         <ScnButton variant="secondary">Secondary</ScnButton>
