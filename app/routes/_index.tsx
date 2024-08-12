@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
 import { Button as ScnButton } from "~/lib/components/ui/button";
 import { ChevronRight, Mail, Loader2 } from "lucide-react";
-import { Button } from "~/lib/components/rac/Button";
+import { Button } from "~/lib/components/rac-starter/Button";
 
 export const meta: MetaFunction = () => {
   return [
