@@ -3,6 +3,9 @@ import { composeRenderProps, Button as RACButton, ButtonProps as RACButtonProps 
 import { tv } from 'tailwind-variants';
 import { focusRing } from './utils';
 
+// https://github.com/mehdibha/dotUI/blob/main/src/lib/components/core/default/button.tsx
+// https://github.com/irsyadadl/justd/blob/main/components/ui/button.tsx
+
 export interface ButtonProps extends RACButtonProps {
   variant?: 'primary' | 'secondary' | 'destructive' | 'icon'
 }
