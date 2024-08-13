@@ -3,6 +3,7 @@ import { Button as ScnButton } from "~/lib/components/ui/button";
 import { ChevronRight, Mail, Loader2 } from "lucide-react";
 import { Button as RacButton } from "~/lib/components/rac-starter/Button";
 import { Button } from "~/lib/components/rac/Button";
+import { Button as JollyButton } from "~/lib/components/jolly-ui/button";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,8 +23,10 @@ export default function Index() {
         <RacButton variant="primary">Rac Button</RacButton>
         <RacButton variant="secondary">Rac Button</RacButton>
         <RacButton variant="destructive">Rac Button</RacButton>
-        <ChevronRight className="h-4 w-4" />
-        <RacButton variant="icon"></RacButton>
+        <RacButton variant="icon">
+          <ChevronRight className="h-4 w-4" />
+        </RacButton>
+        <JollyButton>Jolly Button</JollyButton>
       </div>
       <div className="flex flex-col gap-4 max-w-[175px]">
         <ScnButton disabled>Button</ScnButton>
