@@ -1,16 +1,16 @@
-import React from 'react';
-import { composeRenderProps, Button as RACButton, ButtonProps as RACButtonProps } from 'react-aria-components';
+import { composeRenderProps, Button as RacButton, ButtonProps as RacButtonProps } from 'react-aria-components';
 import { tv } from 'tailwind-variants';
 import { focusRing } from './utils';
 
+// https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/src/Button.tsx
 // https://github.com/mehdibha/dotUI/blob/main/src/lib/components/core/default/button.tsx
 // https://github.com/irsyadadl/justd/blob/main/components/ui/button.tsx
 
-export interface ButtonProps extends RACButtonProps {
+export interface ButtonProps extends RacButtonProps {
   variant?: 'primary' | 'secondary' | 'destructive' | 'icon'
 }
 
-let button = tv({
+const button = tv({
   extend: focusRing,
   base: 'px-5 py-2 text-sm text-center transition rounded-lg border border-black/10 dark:border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] dark:shadow-none cursor-default',
   variants: {
@@ -31,7 +31,7 @@ let button = tv({
 
 export function Button(props: ButtonProps) {
   return (
-    <RACButton
+    <RacButton
       {...props}
       className={composeRenderProps(
         props.className,
