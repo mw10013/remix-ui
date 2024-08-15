@@ -17,21 +17,14 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex flex-col gap-2 p-4 font-sans">
-      <div className="grid grid-cols-3 gap-4">
+    <div className="flex flex-col gap-4 p-4 font-sans">
+      <h1 className="text-3xl">Welcome to remix-ui on Cloudflare</h1>
+      <div className="grid grid-cols-3 gap-4 max-w-lg">
         <Button>Button 1</Button>
-        <Button>Button 2</Button>
-        <Button>Button 3</Button>
-        <Button>Button 4</Button>
-        <Button>Button 5</Button>
-        <Button>Button 6</Button>
-        <Button>Button 7</Button>
-        <Button>Button 8</Button>
-        <Button>Button 9</Button>
+        <ScnButton>Button 2</ScnButton>
       </div>
 
-      <h1 className="text-3xl">Welcome to remix-ui on Cloudflare</h1>
-      <div className="flex max-w-[175px] flex-col gap-4">
+      <div className="mt-8 flex max-w-[175px] flex-col gap-4">
         <RacButton variant="primary">Rac Button</RacButton>
         <RacButton variant="secondary">Rac Button</RacButton>
         <RacButton variant="destructive">Rac Button</RacButton>
