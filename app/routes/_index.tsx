@@ -19,9 +19,24 @@ export default function Index() {
   return (
     <div className="flex flex-col gap-4 p-4 font-sans">
       <h1 className="text-3xl">Welcome to remix-ui on Cloudflare</h1>
-      <div className="grid grid-cols-3 gap-4 max-w-lg">
-        <Button>Button 1</Button>
-        <ScnButton>Button 2</ScnButton>
+      <div className="grid grid-cols-2 gap-4 max-w-lg">
+        <Button>RAC</Button>
+        <ScnButton>Shad</ScnButton>
+        <Button variant="secondary">RAC</Button>
+        <ScnButton variant="secondary">Shad</ScnButton>
+        <Button variant="destructive">RAC</Button>
+        <ScnButton variant="destructive">Shad</ScnButton>
+        <Button variant="outline">RAC</Button>
+        <ScnButton variant="outline">Shad</ScnButton>
+        <Button variant="ghost">RAC</Button>
+        <ScnButton variant="ghost">Shad</ScnButton>
+        <Button size="sm">sm</Button>
+        <ScnButton size="sm">sm</ScnButton>
+        <Button size="lg">lg</Button>
+        <ScnButton size="lg">lg</ScnButton>
+        <Button variant="outline" size="icon"><ChevronRight className="h-4 w-4" /></Button>
+        <ScnButton variant="outline" size="icon"><ChevronRight className="h-4 w-4" /></ScnButton>
+
       </div>
 
       <div className="mt-8 flex max-w-[175px] flex-col gap-4">
