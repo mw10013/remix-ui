@@ -16,7 +16,7 @@ export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}']
     
    },
-  { ignores: ["app/lib/components/rac-starter/"]},
+  // { ignores: ["app/lib/components/rac-starter/"]},
   { languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } } },
   { languageOptions: { globals: globals.browser } },
   includeIgnoreFile(gitignorePath),

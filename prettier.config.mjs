@@ -28,24 +28,12 @@ const config = {
     // https://github.com/prettier/prettier-vscode/issues/3248: "prettier.documentSelectors": ["**/*.sql"]
     // https://github.com/tailwindlabs/prettier-plugin-tailwindcss
     // https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/59
-    tailwindConfig: './functions/app/tailwind.config.ts',
+    tailwindConfig: './tailwind.config.ts',
     plugins: [
-      'prettier-plugin-sql',
       '@ianvs/prettier-plugin-sort-imports',
       'prettier-plugin-tailwindcss',
     ],
     tailwindFunctions: ['tv'],
-    overrides: [
-      {
-        files: ['*.sql'],
-        // https://github.com/un-ts/prettier/tree/master/packages/sql#parser-options
-        options: {
-          language: 'sqlite',
-          // keywordCase: 'lower',
-          keywordCase: 'upper',
-        },
-      },
-    ],
   }
   
   export default config
