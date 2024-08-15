@@ -17,7 +17,7 @@ export interface ButtonProps extends RacButtonProps {
 
 const button = tv({
   extend: focusRing,
-  base: 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  base: 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
   variants: {
     variant: {
       default: 'bg-primary text-primary-foreground hover:bg-primary/90',
@@ -35,7 +35,7 @@ const button = tv({
       icon: 'h-10 w-10',
     },
     isDisabled: {
-      true: 'border-black/5 bg-gray-100 text-gray-300 dark:border-white/5 dark:bg-zinc-800 dark:text-zinc-600 forced-colors:text-[GrayText]',
+      true: 'pointer-events-none opacity-50',
     },
   },
   defaultVariants: {

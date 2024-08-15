@@ -19,7 +19,7 @@ export default function Index() {
   return (
     <div className="flex flex-col gap-4 p-4 font-sans">
       <h1 className="text-3xl">Welcome to remix-ui on Cloudflare</h1>
-      <div className="grid grid-cols-2 gap-4 max-w-lg">
+      <div className="grid max-w-lg grid-cols-2 gap-4">
         <Button>RAC</Button>
         <ScnButton>Shad</ScnButton>
         <Button variant="secondary">RAC</Button>
@@ -34,9 +34,14 @@ export default function Index() {
         <ScnButton size="sm">sm</ScnButton>
         <Button size="lg">lg</Button>
         <ScnButton size="lg">lg</ScnButton>
-        <Button variant="outline" size="icon"><ChevronRight className="h-4 w-4" /></Button>
-        <ScnButton variant="outline" size="icon"><ChevronRight className="h-4 w-4" /></ScnButton>
-
+        <Button variant="outline" size="icon">
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+        <ScnButton variant="outline" size="icon">
+          <ChevronRight className="h-4 w-4" />
+        </ScnButton>
+        <Button isDisabled>RAC</Button>
+        <ScnButton disabled>Shad</ScnButton>
       </div>
 
       <div className="mt-8 flex max-w-[175px] flex-col gap-4">
