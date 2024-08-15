@@ -36,8 +36,10 @@ const button = tv({
     isDisabled: {
       true: 'pointer-events-none opacity-50',
     },
-    // isHovered: {
-    // },
+    isHovered: {
+      // true: 'border-2 border-lime-600',
+      true: '',
+    },
     compoundVariants: [
       {
         variant: 'default',
@@ -47,7 +49,7 @@ const button = tv({
       {
         variant: 'destructive',
         isHovered: true,
-        class: 'bg-destructive/90',
+        class: 'border-0 bg-destructive/90',
       },
     ],
   },
