@@ -38,8 +38,8 @@ export default function Index() {
         <ScnButton variant="outline" size="icon">
           <ChevronRight className="h-4 w-4" />
         </ScnButton>
-        <Button isDisabled>RAC</Button>
-        <ScnButton disabled>Shad</ScnButton>
+        <Button isDisabled>Disabled</Button>
+        <ScnButton disabled>Disabled</ScnButton>
         <Button>
           <Mail className="mr-2 h-4 w-4" /> Login with Email
         </Button>

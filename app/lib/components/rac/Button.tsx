@@ -11,7 +11,7 @@ import { focusRing } from './utils'
 // https://github.com/irsyadadl/justd/blob/main/components/ui/button.tsx
 
 export interface ButtonProps extends RacButtonProps {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' 
+  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost'
   size?: 'default' | 'sm' | 'lg' | 'icon'
 }
 
@@ -20,9 +20,8 @@ const button = tv({
   base: 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
   variants: {
     variant: {
-      default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-      destructive:
-        'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+      default: 'bg-primary text-primary-foreground',
+      destructive: 'bg-destructive text-destructive-foreground',
       outline:
         'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
       secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
@@ -37,6 +36,20 @@ const button = tv({
     isDisabled: {
       true: 'pointer-events-none opacity-50',
     },
+    // isHovered: {
+    // },
+    compoundVariants: [
+      {
+        variant: 'default',
+        isHovered: true,
+        class: 'bg-primary/90',
+      },
+      {
+        variant: 'destructive',
+        isHovered: true,
+        class: 'bg-destructive/90',
+      },
+    ],
   },
   defaultVariants: {
     variant: 'default',
@@ -49,7 +62,12 @@ export function Button(props: ButtonProps) {
     <RacButton
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        button({ ...renderProps, variant: props.variant, size: props.size, className })
+        button({
+          ...renderProps,
+          variant: props.variant,
+          size: props.size,
+          className,
+        })
       )}
     />
   )
