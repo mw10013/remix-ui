@@ -10,6 +10,9 @@ import { focusRing } from './utils'
 // https://github.com/mehdibha/dotUI/blob/main/src/lib/components/core/default/button.tsx
 // https://github.com/irsyadadl/justd/blob/main/components/ui/button.tsx
 
+// https://github.com/nextui-org/tailwind-variants/issues/209 : compoundVariants does not recognize falsy boolean variant
+// https://github.com/nextui-org/tailwind-variants/pull/210 : fix: treat undefined value for compoundVariants as false
+
 export interface ButtonProps extends RacButtonProps {
   variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost'
   size?: 'default' | 'sm' | 'lg' | 'icon'
