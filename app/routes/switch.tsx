@@ -6,17 +6,18 @@ export default function RouteComponent() {
   return (
     <div className="container flex flex-col gap-2 p-6">
       Switch
-      <div className="flex items-center space-x-2">
-        <Switch>Airplane Mode</Switch>
-      </div>
-      <div className="flex items-center space-x-2">
-        <Switch id="airplane-mode">
+      <div className="grid max-w-lg grid-cols-2 gap-4">
+        <div className="flex items-center space-x-2">
+          <Switch>Airplane Mode</Switch>
+        </div>
+        <div className="flex items-center space-x-2">
+          <ShadcnSwitch id="airplane-mode" />
           <ShadcnLabel htmlFor="airplane-mode">Airplane Mode</ShadcnLabel>
+        </div>
+        <Switch defaultSelected isDisabled>
+          {''}
         </Switch>
-      </div>
-      <div className="flex items-center space-x-2">
-        <ShadcnSwitch id="airplane-mode" />
-        <ShadcnLabel htmlFor="airplane-mode">Airplane Mode</ShadcnLabel>
+        <ShadcnSwitch checked disabled aria-readonly />
       </div>
     </div>
   )

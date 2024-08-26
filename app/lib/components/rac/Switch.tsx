@@ -1,45 +1,56 @@
-import React from 'react';
+import React from 'react'
 import {
-  Switch as AriaSwitch,
-  SwitchProps as AriaSwitchProps
-} from 'react-aria-components';
-import { tv } from 'tailwind-variants';
-import { composeTailwindRenderProps, focusRing } from './utils';
+  Switch as RacSwitch,
+  SwitchProps as RacSwitchProps,
+} from 'react-aria-components'
+import { tv } from 'tailwind-variants'
+import { composeTailwindRenderProps, focusRing } from './utils'
 
-export interface SwitchProps extends Omit<AriaSwitchProps, 'children'> {
-  children: React.ReactNode;
+export interface SwitchProps extends Omit<RacSwitchProps, 'children'> {
+  children: React.ReactNode
 }
 
+// shadcn switch: peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent
+// transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background
+// disabled:cursor-not-allowed disabled:opacity-50
+// data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
 const track = tv({
   extend: focusRing,
-  base: 'flex h-4 w-7 px-px items-center shrink-0 cursor-default rounded-full transition duration-200 ease-in-out shadow-inner border border-transparent',
+  base: 'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent',
   variants: {
     isSelected: {
-      false: 'bg-gray-400 dark:bg-zinc-400 group-pressed:bg-gray-500 dark:group-pressed:bg-zinc-300',
-      true: 'bg-gray-700 dark:bg-zinc-300 forced-colors:!bg-[Highlight] group-pressed:bg-gray-800 dark:group-pressed:bg-zinc-200',
+      false: 'bg-input',
+      true: 'bg-primary',
     },
     isDisabled: {
-      true: 'bg-gray-200 dark:bg-zinc-700 forced-colors:group-selected:!bg-[GrayText] forced-colors:border-[GrayText]',
-    }
-  }
-});
+      true: 'cursor-not-allowed opacity-50',
+    },
+  },
+})
 
+// shadcn: pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform
+// data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
 const handle = tv({
-  base: 'h-3 w-3 transform rounded-full bg-white dark:bg-zinc-900 outline outline-1 -outline-offset-1 outline-transparent shadow transition duration-200 ease-in-out',
+  base: 'pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform',
   variants: {
     isSelected: {
       false: 'translate-x-0',
-      true: 'translate-x-[100%]'
+      true: 'translate-x-5',
     },
     isDisabled: {
-      true: 'forced-colors:outline-[GrayText]'
-    }
-  }
-});
+      true: '',
+    },
+  },
+})
 
 export function Switch({ children, ...props }: SwitchProps) {
   return (
-    <AriaSwitch {...props} className={composeTailwindRenderProps(props.className, 'group flex gap-2 items-center text-gray-800 disabled:text-gray-300 dark:text-zinc-200 dark:disabled:text-zinc-600 forced-colors:disabled:text-[GrayText] text-sm transition')}>
+    <RacSwitch
+      {...props}
+      className={composeTailwindRenderProps(
+        props.className,
+        'group flex items-center gap-2 text-sm text-gray-800 transition disabled:text-gray-300 dark:text-zinc-200 dark:disabled:text-zinc-600 forced-colors:disabled:text-[GrayText]'
+      )}>
       {(renderProps) => (
         <>
           <div className={track(renderProps)}>
@@ -48,6 +59,6 @@ export function Switch({ children, ...props }: SwitchProps) {
           {children}
         </>
       )}
-    </AriaSwitch>
-  );
+    </RacSwitch>
+  )
 }
