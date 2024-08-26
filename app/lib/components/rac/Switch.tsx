@@ -14,16 +14,17 @@ export interface SwitchProps extends Omit<RacSwitchProps, 'children'> {
 // transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background
 // disabled:cursor-not-allowed disabled:opacity-50
 // data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+// We leave out peer because RacSwitch wraps the switch in a <label> while shadcn uses a separate <label> that is pper to the switch.
 const track = tv({
   extend: focusRing,
-  base: 'peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent',
+  base: 'inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent',
   variants: {
     isSelected: {
       false: 'bg-input',
       true: 'bg-primary',
     },
     isDisabled: {
-      true: 'cursor-not-allowed opacity-50',
+      true: 'cursor-not-allowed opacity-80', // opacity-50 does not visually match shadcn so we fudge.
     },
   },
 })
@@ -43,6 +44,11 @@ const handle = tv({
   },
 })
 
+// RacSwitch wraps the switch in a <label> with a hidden <span> containing an <input> of type checkbox.
+// The text of the label can be in the children of the switch.
+// Shadcn/Radix wraps the switch in a <button>. Any <label> is a peer to the switch.
+// Shadcn label: text-sm font-medium leading-none
+// peer-disabled:cursor-not-allowed peer-disabled:opacity-70
 export function Switch({ children, ...props }: SwitchProps) {
   return (
     <RacSwitch
@@ -50,7 +56,7 @@ export function Switch({ children, ...props }: SwitchProps) {
       className={composeTailwindRenderProps(
         props.className,
         // 'group flex items-center gap-2 text-sm text-gray-800 transition disabled:text-gray-300 dark:text-zinc-200 dark:disabled:text-zinc-600 forced-colors:disabled:text-[GrayText]'
-        'group flex items-center gap-2'
+        'group flex items-center gap-2 text-sm font-medium leading-none disabled:cursor-not-allowed disabled:opacity-70'
       )}>
       {(renderProps) => (
         <>

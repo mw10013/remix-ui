@@ -16,6 +16,15 @@ export default function RouteComponent() {
         </div>
         <Switch defaultSelected isDisabled isReadOnly />
         <ShadcnSwitch checked disabled aria-readonly />
+        <div className="flex items-center space-x-2">
+          <Switch defaultSelected isDisabled>
+            Wifi Mode
+          </Switch>
+        </div>
+        <div className="flex items-center space-x-2">
+          <ShadcnSwitch id="wifi-mode" checked disabled />
+          <ShadcnLabel htmlFor="wifi-mode">Wifi Mode</ShadcnLabel>
+        </div>
       </div>
     </div>
   )
