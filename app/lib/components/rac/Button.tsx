@@ -18,7 +18,7 @@ export interface ButtonProps extends RacButtonProps {
   size?: 'default' | 'sm' | 'lg' | 'icon'
 }
 
-const button = tv({
+export const button = tv({
   extend: focusRing,
   base: 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
   variants: {
@@ -39,23 +39,29 @@ const button = tv({
     isDisabled: {
       true: 'pointer-events-none opacity-50',
     },
-    isHovered: {
-      // true: 'border-2 border-lime-600',
-      true: '',
-    },
-    compoundVariants: [
-      {
-        variant: 'default',
-        isHovered: true,
-        class: 'bg-primary/90',
-      },
-      {
-        variant: 'destructive',
-        isHovered: true,
-        class: 'border-0 bg-destructive/90',
-      },
-    ],
   },
+  compoundVariants: [
+    {
+      variant: 'default',
+      isHovered: true,
+      class: 'bg-primary/90',
+    },
+    {
+      variant: 'destructive',
+      isHovered: true,
+      class: 'bg-destructive/90',
+    },
+    {
+      variant: ['outline', 'ghost'],
+      isHovered: true,
+      class: 'bg-accent text-accent-foreground',
+    },
+    {
+      variant: 'secondary',
+      isHovered: true,
+      class: 'bg-secondary/80',
+    },
+  ],
   defaultVariants: {
     variant: 'default',
     size: 'default',
