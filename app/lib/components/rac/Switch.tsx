@@ -7,7 +7,7 @@ import { tv } from 'tailwind-variants'
 import { composeTailwindRenderProps, focusRing } from './utils'
 
 export interface SwitchProps extends Omit<RacSwitchProps, 'children'> {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 // shadcn switch: peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent
@@ -49,7 +49,8 @@ export function Switch({ children, ...props }: SwitchProps) {
       {...props}
       className={composeTailwindRenderProps(
         props.className,
-        'group flex items-center gap-2 text-sm text-gray-800 transition disabled:text-gray-300 dark:text-zinc-200 dark:disabled:text-zinc-600 forced-colors:disabled:text-[GrayText]'
+        // 'group flex items-center gap-2 text-sm text-gray-800 transition disabled:text-gray-300 dark:text-zinc-200 dark:disabled:text-zinc-600 forced-colors:disabled:text-[GrayText]'
+        'group flex items-center gap-2'
       )}>
       {(renderProps) => (
         <>

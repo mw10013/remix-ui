@@ -14,9 +14,7 @@ export default function RouteComponent() {
           <ShadcnSwitch id="airplane-mode" />
           <ShadcnLabel htmlFor="airplane-mode">Airplane Mode</ShadcnLabel>
         </div>
-        <Switch defaultSelected isDisabled>
-          {''}
-        </Switch>
+        <Switch defaultSelected isDisabled isReadOnly />
         <ShadcnSwitch checked disabled aria-readonly />
       </div>
     </div>
