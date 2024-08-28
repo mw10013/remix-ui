@@ -14,7 +14,7 @@ import { composeTailwindRenderProps, focusRing } from './utils'
 // disabled:cursor-not-allowed disabled:opacity-50
 const inputStyles = tv({
   extend: focusRing,
-  base: 'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground',
+  base: '', // Input in Field.tsx has the base styles
   variants: {
     isDisabled: {
       true: 'cursor-not-allowed opacity-50',
@@ -26,12 +26,14 @@ export interface TextFieldProps extends RacTextFieldProps {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  placeholder?: string
 }
 
 export function TextField({
   label,
   description,
   errorMessage,
+  placeholder,
   ...props
 }: TextFieldProps) {
   return (
@@ -42,7 +44,7 @@ export function TextField({
         'flex flex-col gap-1'
       )}>
       {label && <Label>{label}</Label>}
-      <Input className={inputStyles} />
+      <Input className={inputStyles} placeholder={placeholder} />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </RacTextField>
