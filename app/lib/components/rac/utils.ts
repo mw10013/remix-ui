@@ -17,6 +17,7 @@ import { tv } from 'tailwind-variants'
 // data-[state=checked]:bg-primary data-[state=unchecked]:bg-input
 
 // ring-offset-background discrepency between shadcn button and switch.
+// shadcn input has ring-offset-background
 
 export const focusRing = tv({
   base: 'ring-offset-background transition-colors',
